@@ -70,11 +70,20 @@ function calcStudentsAverage(arrayStudents: Array<{'name': string, 'grades': Arr
     }
 }
 
-const students: Array<{'name': string, 'grades': Array<number>}> = [
-    { 'name': 'Albert', 'grades': [12, 8, 9, 7, 13] },
-    { 'name': 'Vincent', 'grades': [14, 13, 12, 11, 10] },
-    { 'name': 'Michel', 'grades': [17, 16, 15, 18, 13] },
+/**
+ * Exemple d'interface (assimilé Json)
+ */
+interface Student {
+    name: string;
+    grades: Array<number>;
+}
+const grades: Array<number> = [12, 8, 9, 7, 13];
+const students: Array<Student> = [
+    { name: 'Albert', grades },
+    { name: 'Vincent', grades: [14, 13, 12, 11, 10] },
+    { name: 'Michel', grades: [17, 16, 15, 18, 13] },
 ];
+// Mon interface a les mêmes attribut que le paramètre attendu dans ma fonction, ça marche !
 calcStudentsAverage(students);
 
 // La fonction filter permet de filtrer un tableau, la fonction fléchée indique sous quelle condition le nouveau tableau sera renvoyé
@@ -186,3 +195,35 @@ function transform(word: string, transformValue: string = 'fe'): string {
     return newStr;
 }
 console.log('Résultat exo 12 : ' + transform('chat'));
+
+/**
+ * Exemple de classe User
+ */
+class User {
+
+    private _name: string;
+
+    get name(): string {
+        return this._name;
+    }
+
+    set name(name: string) {
+        if (!name) {
+            console.log('Erreur sur le name');
+            return;
+        }
+        this._name = name;
+    }
+
+    constructor(name: string = 'Kevin') {
+        this._name = name;
+    }
+
+    getBetterName(): string {
+        return this._name.toUpperCase();
+    }
+}
+
+let user: User = new User();
+console.log(user.name); // get appelé implicitement
+
