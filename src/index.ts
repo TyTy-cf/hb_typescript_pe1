@@ -110,3 +110,79 @@ function removeDual(arrayDual: Array<number> = [1, 5, 2, 3, 3, 3, 4, 5, 5]): Arr
 }
 
 console.log(removeDual());
+
+/**
+ * Exo 8 - removeDual
+ */
+function mutliTable(digit: number): void {
+    for(let i = 1; i <= 12; i++) {
+        console.log(digit + ' x ' + i + ' = ' + (i * digit));
+    }
+}
+mutliTable(5);
+
+/**
+ * Exo 9 - excerpt
+ */
+function excerpt(text: string, nb: number = 15): string {
+    if (text.length < nb) {
+        return text;
+    }
+    return text.substring(0, nb) + '...';
+}
+console.log(excerpt('Lorem quisque class vestibulum'));
+
+/**
+ * Exo 10 - checkPassword
+ */
+function checkPassword(password: string): boolean {
+    // si le password est < 9 characters ou qu'il ne contient pas @, alors
+    if (password.length < 9 || !password.includes('@')) {
+        // renvoie false
+        return false;
+    }
+    return true;
+}
+console.log('Résultat exo 10 : password is ' + checkPassword('azerty@'));
+
+/**
+ * Exo 11 - transformMillisec
+ *  1252008 => 03h05"02'001
+ */
+function transformMillisec(millesec: number): string {
+    const ms: number = millesec % 1000;
+    const secondsMins: number = Math.floor(millesec / 1000);
+    const seconds: number = secondsMins % 60;
+    const mins: number = Math.floor(secondsMins / 60);
+    const minsStr: string = mins < 10 ? '0' + mins : ''+mins;
+    const secsStr: string = seconds < 10 ? '0' + seconds : ''+seconds;
+    const milliStr: string = ms < 10 ? '00' + ms : ms < 100 ? '0' + ms : '' +ms;
+    return minsStr + ':' + secsStr + '"' + milliStr;
+}
+console.log('Résultat exo 11 : ' + transformMillisec(159753));
+
+/**
+ * Exo 12 - transform
+ *  chat => chafeat
+ */
+function transform(word: string, transformValue: string = 'fe'): string {
+    // Déclarer une nouvelle chaine de caractère
+    let newStr: string = '';
+    // Déterminer les voyelles => tableau
+    const vowels: Array<string> = ['a', 'e', 'o', 'i', 'u', 'y'];
+    // Pour chaque lettre
+    for (const letter of word) {
+        // on ajoute la lettre dans une nouvelle chaine de caractère
+        newStr += letter;
+        // Si la lettre est une voyelle, alors
+        if (vowels.includes(letter)) {
+            // on ajoute transformValue
+            newStr += transformValue;
+            // on répète la lettre dans une nouvelle chaine de caractère
+            newStr += letter;
+        }
+    }
+    // La renvoie la nouvelle chaine de caractère
+    return newStr;
+}
+console.log('Résultat exo 12 : ' + transform('chat'));
