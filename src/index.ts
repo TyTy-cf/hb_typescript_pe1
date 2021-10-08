@@ -226,4 +226,3 @@ class User {
 
 let user: User = new User();
 console.log(user.name); // get appelé implicitement
-
