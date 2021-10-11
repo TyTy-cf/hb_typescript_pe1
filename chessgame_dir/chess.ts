@@ -2,6 +2,22 @@
 class ChessBoard {
     private _damier: Array<Case> = new Array();
 
+    constructor() {
+        let color: string = 'noir';
+        for(let y = 1; y <= 8; y++) {
+            for(let x = 1; x <= 8; x++) {
+                this._damier.push(new Case(color, x, y, undefined));
+                if (x !== 8) {
+                    if (color === 'noir') {
+                        color = 'blanc';
+                    } else {
+                        color = 'noir';
+                    }
+                }
+            }
+        }
+    }
+
     get damier(): Array<Case> {
         return this._damier;
     }
@@ -130,7 +146,9 @@ class Pawn extends Piece {
     }
 }
 
-const kingB = new King('noir');
-const kingW = new King('blanc');
-console.log(kingB);
-console.log(kingW);
+// const kingB = new King('noir');
+// const kingW = new King('blanc');
+// console.log(kingB);
+// console.log(kingW);
+const board = new ChessBoard();
+console.log(board.damier);
