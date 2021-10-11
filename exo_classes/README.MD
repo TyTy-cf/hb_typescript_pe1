@@ -42,3 +42,90 @@ Vous devrez gérer ce cas de figure !
 Faites une fonction permettant d'afficher les différentes stats de votre héro.
 
 Testez votre classe avec plusieurs héros et faites les combattre ensemble.
+
+### 3. Héritage
+
+Class : Hero, caractérisé par :
+
+- Son nom (name)
+- Ses points de vie (hitPoint)
+- Dégâts max (damageMax)
+- Dégâts min (damageMin)
+- Son niveau (level)
+- Defense (defense)
+- Chance de coup critique (criticalChance)
+
+Tous les Héros commencent niveau 1 et ont par défaut 5% de chance de coup critique
+
+Créer ensuite les classes suivantes :
+
+
+- Mage, un Mage est un Hero
+- Un mage commence **toujours** avec les attributs suivants :
+- 300 points de vie
+- 52 dégâts min et 58 dégâts max
+- 2 de défense
+
+
+
+- Warrior, un Warrior est un Hero
+- Un Warrior commence **toujours** avec les stats suivantes :
+- 360 points de vie
+- 44 dégâts min et 47 dégâts max
+- 4 de défense
+
+
+
+- Rogue, un Rogue est un Hero
+- Un Rogue commence **toujours** avec les stats suivantes :
+- 320 points de vie
+- 42 dégâts min et 52 dégâts max
+- 3 de défense
+
+
+
+Par la suite... Ajouter une fonction de levelUp à la classe Héros
+Tous les héros :
+- Monte leur niveau de 1
+- Gagne 0.25% de coup critique
+
+
+Et de modifier les caractéristiques de nos héros en fonction de leur classe
+
+Un Mage :
+- Gagne 25 points de vie par montée de niveau
+- Gagne 4 points de dégâts (min et max)
+- Gagne 1 point de défense si son niveau est un multiple de 5
+
+
+
+Un Warrior :
+- Gagne 39 points de vie par montée de niveau
+- Gagne 2 points de dégâts (min et max)
+- Gagne 1 point de défense si son niveau un multiple de 3
+
+
+
+Un Rogue :
+- Gagne 33 points de vie par montée de niveau
+- Gagne 3 points de dégâts (min et max)
+- Gagne 1 point de défense si son niveau un multiple de 4
+- Le Rogue va gagner 0.33% de crit par niveau, au lieu de 0.25%
+
+
+
+### 18. Suite TP héritage
+
+
+Ajouter une fonction "attack" dans la classe Hero, elle prend en paramètre un autre Hero
+
+
+Le but de cette méthode est que le héro courant attaque le héro en paramètre, pour cela :
+- Déterminer les dégâts du héro : un alétoire entre ses dégâts min et max (fonction Math.random => chercher sur internet la fonction à créer)
+- Déterminer si le coup est critique, un coup critique inflige 50% en plus des dégâts normaux
+- Puis le coup est réduit par la défense du héro attaqué, la défense un pourcentage (1 + (defense/100))
+- Puis le héro attaqué perd ses points de vie
+
+
+Enfin :
+- Simuler un combat entre deux héros, l'un commence, l'autre réplique et ainsi de suite, jusqu'à qu'il n'y en ai plus qu'un.
