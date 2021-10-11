@@ -1,6 +1,6 @@
 {
-  "watch": ["src/classes"],
+  "watch": ["src/cours"],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./src/classes/index.ts"
+  "exec": "ts-node ./src/cours/index.ts"
 }
