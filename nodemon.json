@@ -1,6 +1,6 @@
 {
-  "watch": ["chessgame_dir"],
+  "watch": ["src"],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./chessgame_dir/chess.ts"
+  "exec": "ts-node ./src/index.ts"
 }

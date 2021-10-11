@@ -197,6 +197,54 @@ function transform(word: string, transformValue: string = 'fe'): string {
 console.log('Résultat exo 12 : ' + transform('chat'));
 
 /**
+ * Exo 13 - inverseString
+ */
+function inverseString(aString: string): string {
+    let returnedString: string = '';
+    for(let i = aString.length - 1; i >= 0; i--) {
+        returnedString += aString[i];
+    }
+    return returnedString;
+}
+console.log('Résultat exo 13 : ' + inverseString('inverseString'));
+
+/**
+ * Exo 14 - isPangram
+ */
+function isPangram(myString: string): boolean {
+    let savedLetters: Array<string> = [];
+    const alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    for (const letter of myString) {
+        if (letter !== ' ') {
+            if (alpha.includes(letter) && !savedLetters.includes(letter)) {
+                savedLetters.push(letter);
+            }
+        }
+    }
+    return savedLetters.length === alpha.length;
+}
+console.log('Résultat exo 14 : ' + isPangram('the quick brown fox jumps over the lazy dog'));
+
+/**
+ * Exo 15 - isPangram
+ */
+function getScrabbleScore(myString: string): number {
+    //     - 2 points: "D", "G",
+    //     - 3 points: "B", "C", "M", "P",
+    //     - 4 points: "F", "H", "V", "W", "Y",
+    //     - 5 points: "K",
+    //     - 8 points: "J", "X",
+    //     - 10 points: "Q", "Z",
+    const onePoint: Array<string> = ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'];
+    const twoPoint: Array<string> = ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'];
+
+    return 0;
+}
+console.log('Résultat exo 15 : ' + isPangram('the quick brown fox jumps over the lazy dog'));
+
+
+
+/**
  * Exemple de classe User
  */
 class User {
