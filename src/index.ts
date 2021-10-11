@@ -228,49 +228,52 @@ console.log('Résultat exo 14 : ' + isPangram('the quick brown fox jumps over th
 /**
  * Exo 15 - isPangram
  */
-function getScrabbleScore(myString: string): number {
-    //     - 2 points: "D", "G",
-    //     - 3 points: "B", "C", "M", "P",
-    //     - 4 points: "F", "H", "V", "W", "Y",
-    //     - 5 points: "K",
-    //     - 8 points: "J", "X",
-    //     - 10 points: "Q", "Z",
-    const onePoint: Array<string> = ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'];
-    const twoPoint: Array<string> = ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'];
 
-    return 0;
+interface ScrabbleCount {
+  point: number;
+  alpha: Array<string>;
 }
-console.log('Résultat exo 15 : ' + isPangram('the quick brown fox jumps over the lazy dog'));
 
-
+function getScrabbleScore(myString: string): number {
+    const scores: Array<ScrabbleCount> = [
+        { point: 1, alpha: ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'] },
+        { point: 2, alpha: ['d', 'g'] },
+        { point: 3, alpha: ['b', 'c', 'm', 'p'] },
+        { point: 4, alpha: ['f', 'h', 'v', 'w', 'y'] },
+        { point: 5, alpha: ['k'] },
+        { point: 8, alpha: ['j', 'x'] },
+        { point: 10, alpha: ['q', 'z'] },
+    ];
+    let finalScore: number = 0;
+    // On parcourt les lettres du mot
+    for (const letter of myString) {
+        // Pour chaque lettre on parcourt les différents résultats
+        for (const score of scores) {
+            // si la lettre existe dans le tableau
+            if (score.alpha.includes(letter)) {
+                // alors, on augmente le score du nombre de points
+                finalScore += score.point;
+                break;
+            }
+        }
+    }
+    return finalScore;
+}
+console.log('Résultat exo 15 : ' + getScrabbleScore('quick'));
 
 /**
- * Exemple de classe User
+ * Exo 16 - beerSong
  */
-class User {
-
-    private _name: string;
-
-    get name(): string {
-        return this._name;
-    }
-
-    set name(name: string) {
-        if (!name) {
-            console.log('Erreur sur le name');
-            return;
-        }
-        this._name = name;
-    }
-
-    constructor(name: string = 'Kevin') {
-        this._name = name;
-    }
-
-    getBetterName(): string {
-        return this._name.toUpperCase();
+function getBeerSong(nbBeers: number): void {
+    if (nbBeers > 0) {
+        const lessBeers: number  = nbBeers - 1;
+        console.log(lessBeers + ' bottles of beer on the wall, ' + lessBeers + ' bottles of beer.');
+        const lesserBeers: string = (lessBeers - 1 > 0) ? (lessBeers - 1) + '' : 'no more';
+        console.log('Take one down and pass it around, ' + lesserBeers + ' bottles of beer on the wall.');
+        getBeerSong(lessBeers - 1);
+    } else {
+        console.log('No more bottles of beer on the wall, no more bottles of beer.');
+        console.log('Go to the store and buy some more, 99 bottles of beer on the wall.');
     }
 }
-
-let user: User = new User();
-console.log(user.name); // get appelé implicitement
+getBeerSong(100);

@@ -1,4 +1,38 @@
 
+/**
+ * Exemple de classe User
+ */
+class User {
+
+    private _name: string;
+
+    get name(): string {
+        return this._name;
+    }
+
+    set name(name: string) {
+        if (!name) {
+            console.log('Erreur sur le name');
+            return;
+        }
+        this._name = name;
+    }
+
+    constructor(name: string = 'Kevin') {
+        this._name = name;
+    }
+
+    getBetterName(): string {
+        return this._name.toUpperCase();
+    }
+}
+
+let user: User = new User();
+console.log(user.name); // get appelé implicitement
+
+/**
+ * Héritage avec la classe Product
+ */
 abstract class Product {
     protected _name: string;
     protected _price: number;
