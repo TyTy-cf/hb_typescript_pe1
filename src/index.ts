@@ -268,8 +268,9 @@ function getBeerSong(nbBeers: number): void {
     if (nbBeers > 0) {
         const lessBeers: number  = nbBeers - 1;
         console.log(lessBeers + ' bottles of beer on the wall, ' + lessBeers + ' bottles of beer.');
-        const lesserBeers: string = (lessBeers - 1 > 0) ? (lessBeers - 1) + '' : 'no more';
-        console.log('Take one down and pass it around, ' + lesserBeers + ' bottles of beer on the wall.');
+        const lesserBeers: number = lessBeers - 1;
+        const textLessBeers: string = (lesserBeers > 0) ? lesserBeers + '' : 'no more';
+        console.log('Take one down and pass it around, ' + textLessBeers + ' bottles of beer on the wall.');
         getBeerSong(lessBeers - 1);
     } else {
         console.log('No more bottles of beer on the wall, no more bottles of beer.');
