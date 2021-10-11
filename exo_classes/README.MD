@@ -113,8 +113,7 @@ Un Rogue :
 - Le Rogue va gagner 0.33% de crit par niveau, au lieu de 0.25%
 
 
-
-### 18. Suite TP héritage
+### 4. Suite TP héritage
 
 
 Ajouter une fonction "attack" dans la classe Hero, elle prend en paramètre un autre Hero
@@ -129,3 +128,22 @@ Le but de cette méthode est que le héro courant attaque le héro en paramètre
 
 Enfin :
 - Simuler un combat entre deux héros, l'un commence, l'autre réplique et ainsi de suite, jusqu'à qu'il n'y en ai plus qu'un.
+
+
+### 5. Yatzee
+
+Au tour du Yatzee maintenant, mais qu'est-ce que le Yatzee ?  https://fr.wikipedia.org/wiki/Yahtzee
+
+Comment feriez-vous pour le modéliser en objet ?
+Réfléchissez à ça, et appelez-moi lorsque vous avez une idée, que je vous la valide (ou pas !)
+
+(Il faut 2 classes)
+
+Une fois la "solution" trouvée :
+- Faire une fonction qui effectue un lancé => affichage du test via un console.log
+- Nous allons calculer les points réalisés par l'utilisateur, dans un premier temps on ne testera que les cas de base :
+    - Brelan : 3 dés identiques, somme des dés
+    - Carré : 4 dés identiques, somme des dés
+    - Full : 3 dés identiques et 2 dés identiques, 25 points
+    - Yatzee : 5 dés identiques, 50 points
+- Faire une fonction qui informe l'utilisateur des points réalisés lors de son lancé
