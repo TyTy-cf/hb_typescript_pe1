@@ -206,13 +206,14 @@ function inverseString(aString: string): string {
     }
     return returnedString;
 }
-console.log('Résultat exo 13 : ' + inverseString('inverseString'));
+console.log('Résultat exo 13 : ' + inverseString('uaepahc'));
 
 /**
  * Exo 14 - isPangram
  */
 function isPangram(myString: string): boolean {
     let savedLetters: Array<string> = [];
+    myString = myString.toLowerCase();
     const alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     for (const letter of myString) {
         if (letter !== ' ') {
@@ -221,12 +222,14 @@ function isPangram(myString: string): boolean {
             }
         }
     }
+    // un test de if, renvoie toujours true ou false
+    // ici, on renvoie true si la taille de notre tableau de sauvegarde est égale à la taille du tableau de l'alphabet
     return savedLetters.length === alpha.length;
 }
 console.log('Résultat exo 14 : ' + isPangram('the quick brown fox jumps over the lazy dog'));
 
 /**
- * Exo 15 - isPangram
+ * Exo 15 - getScrabbleScore
  */
 
 interface ScrabbleCount {
@@ -253,6 +256,7 @@ function getScrabbleScore(myString: string): number {
             if (score.alpha.includes(letter)) {
                 // alors, on augmente le score du nombre de points
                 finalScore += score.point;
+                // On arrête la deuxième boucle : on a trouvé notre lettre, pas besoin de continuer
                 break;
             }
         }
@@ -263,18 +267,27 @@ console.log('Résultat exo 15 : ' + getScrabbleScore('quick'));
 
 /**
  * Exo 16 - beerSong
+ *
+ * Fonction récursive
  */
 function getBeerSong(nbBeers: number): void {
+    // Il faut un test d'arrêt
     if (nbBeers > 0) {
-        const lessBeers: number  = nbBeers - 1;
-        console.log(lessBeers + ' bottles of beer on the wall, ' + lessBeers + ' bottles of beer.');
-        const lesserBeers: number = lessBeers - 1;
+        console.log(nbBeers + ' ' + getPlural(nbBeers, 'bottle') + ' of beer on the wall, ' + nbBeers + ' ' +  getPlural(nbBeers, 'bottle') + ' of beer.');
+        const lesserBeers: number = nbBeers - 1;
+        // if ternaire : condition ? resultat si true : resultat si false
         const textLessBeers: string = (lesserBeers > 0) ? lesserBeers + '' : 'no more';
-        console.log('Take one down and pass it around, ' + textLessBeers + ' bottles of beer on the wall.');
-        getBeerSong(lessBeers - 1);
+        console.log('Take one down and pass it around, ' + textLessBeers + ' ' + getPlural(lesserBeers, 'bottle') + ' of beer on the wall.');
+        // une valeur qui est modifiée au fur et à mesure : soit augmenté, soit réduite
+        getBeerSong(nbBeers - 1);
     } else {
         console.log('No more bottles of beer on the wall, no more bottles of beer.');
         console.log('Go to the store and buy some more, 99 bottles of beer on the wall.');
     }
 }
-getBeerSong(100);
+getBeerSong(99);
+
+function getPlural(qty: number, word: string): string {
+    if (qty === 1) return word;
+    return word + 's';
+}
