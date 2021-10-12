@@ -166,5 +166,8 @@ Représentez un découpage géographique, pour cela vous devez modéliser, avec 
     - un codeInsee (string)
     - plusieurs codePostaux (string)
     - nombre d'habitant (number)
+    
+
+Une fois vos classes créées, faire des instances de chacune et les afficher et vérifier que tout fonctionne.
   
 
