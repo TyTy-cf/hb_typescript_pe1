@@ -1,0 +1,8 @@
+
+class Dice {
+
+}
+
+class Yatzee {
+
+}

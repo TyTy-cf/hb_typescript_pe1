@@ -1,6 +1,6 @@
 {
-  "watch": ["exo_classes"],
+  "watch": ["yatzee"],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./exo_classes/heroes.ts"
+  "exec": "ts-node ./yatzee/index.ts"
 }

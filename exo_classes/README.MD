@@ -146,3 +146,25 @@ Une fois la "solution" trouvée :
     - Full : 3 dés identiques et 2 dés identiques, 25 points
     - Yatzee : 5 dés identiques, 50 points
 - Faire une fonction qui informe l'utilisateur des points réalisés lors de son lancé
+
+
+### 6. Découpage géographique
+
+Représentez un découpage géographique, pour cela vous devez modéliser, avec des classes :
+  - Une région, elle possède :
+    - un nom (string)
+    - un code (string)
+    - plusieurs département
+    
+  - Un département, il possède :
+    - un nom (string)
+    - un code (string)
+    - plusieurs villes
+
+  - Une ville, elle possède :
+    - un nom (string)
+    - un codeInsee (string)
+    - plusieurs codePostaux (string)
+    - nombre d'habitant (number)
+  
+
