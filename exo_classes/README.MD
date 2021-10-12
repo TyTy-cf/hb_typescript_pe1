@@ -61,56 +61,55 @@ Créer ensuite les classes suivantes :
 
 
 - Mage, un Mage est un Hero
-- Un mage commence **toujours** avec les attributs suivants :
-- 300 points de vie
-- 52 dégâts min et 58 dégâts max
-- 2 de défense
+  - Pour créer un Mage on a besoin que de son nom (name)
+  - Un mage a **toujours** les valeurs suivantes par défaut :
+    - 300 points de vie
+    - 52 dégâts min et 58 dégâts max
+    - 2 de défense
 
 
 
 - Warrior, un Warrior est un Hero
-- Un Warrior commence **toujours** avec les stats suivantes :
-- 360 points de vie
-- 44 dégâts min et 47 dégâts max
-- 4 de défense
+  - Pour créer un Mage on a besoin que de son nom (name)
+  - Un Warrior a **toujours** les valeurs suivantes par défaut :
+    - 360 points de vie
+    - 44 dégâts min et 47 dégâts max
+    - 4 de défense
 
 
 
 - Rogue, un Rogue est un Hero
-- Un Rogue commence **toujours** avec les stats suivantes :
-- 320 points de vie
-- 42 dégâts min et 52 dégâts max
-- 3 de défense
+  - Pour créer un Mage on a besoin que de son nom (name)
+  - Un Rogue a **toujours** les valeurs suivantes par défaut :
+    - 320 points de vie
+    - 42 dégâts min et 52 dégâts max
+    - 3 de défense
 
 
 
-Par la suite... Ajouter une fonction de levelUp à la classe Héros
-Tous les héros :
-- Monte leur niveau de 1
-- Gagne 0.25% de coup critique
+Par la suite... Ajouter une méthode **levelUp** à la classe Héros
+
+Commun à tous les héros :
+- Augmenter leur niveau (level) de 1
+- Augmenter leur coup critique (criticalChance) de 0.25% 
 
 
-Et de modifier les caractéristiques de nos héros en fonction de leur classe
+La méthode **levelUp** permet aussi d'augmenter les caractéristiques des héros en fonction de leur type :
+- Un Mage :
+  - Augmenter leur points de vie (hitPoint) de 25
+  - Augmenter leur dégât (damageMin & damageMax) de 4
+  - Augmenter leur défense (defense) de 1, si le niveau du héro est un multiple de 5
 
-Un Mage :
-- Gagne 25 points de vie par montée de niveau
-- Gagne 4 points de dégâts (min et max)
-- Gagne 1 point de défense si son niveau est un multiple de 5
+- Un Warrior :
+  - Augmenter leur points de vie (hitPoint) de 39
+  - Augmenter leur dégât (damageMin & damageMax) de 2
+  - Augmenter leur défense (defense) de 1, si le niveau du héro est un multiple de 3
 
-
-
-Un Warrior :
-- Gagne 39 points de vie par montée de niveau
-- Gagne 2 points de dégâts (min et max)
-- Gagne 1 point de défense si son niveau un multiple de 3
-
-
-
-Un Rogue :
-- Gagne 33 points de vie par montée de niveau
-- Gagne 3 points de dégâts (min et max)
-- Gagne 1 point de défense si son niveau un multiple de 4
-- Le Rogue va gagner 0.33% de crit par niveau, au lieu de 0.25%
+- Un Rogue :
+  - Augmenter leur points de vie (hitPoint) de 33
+  - Augmenter leur dégât (damageMin & damageMax) de 3
+  - Augmenter leur défense (defense) de 1, si le niveau du héro est un multiple de 4
+  - Augmenter coup critique (criticalChance) de 0.33% au lieu de 0.25%
 
 
 ### 4. Suite TP héritage
